@@ -7,12 +7,12 @@ namespace AbpAlain.EntityFrameworkCore
     {
         public static void Configure(DbContextOptionsBuilder<AbpAlainDbContext> builder, string connectionString)
         {
-            builder.UseSqlServer(connectionString);
+            builder.UseSqlServer(connectionString, b => b.UseRowNumberForPaging());
         }
 
         public static void Configure(DbContextOptionsBuilder<AbpAlainDbContext> builder, DbConnection connection)
         {
-            builder.UseSqlServer(connection);
+            builder.UseSqlServer(connection, b => b.UseRowNumberForPaging());
         }
     }
 }
